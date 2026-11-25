@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this project, please cite the repository and the underlying dataset."
+title: "Predictive Maintenance Pipeline"
+version: 0.1.0
+date-released: "2026-11-25"
+authors:
+  - family-names: "Pandey"
+    given-names: "Manish"
+repository-code: "https://github.com/Manish27-tech/predictive-maintenance-pipeline"
+license: MIT
+references:
+  - type: article
+    title: "Machine learning for predictive maintenance: AI4I 2020 benchmark"
+    authors:
+      - family-names: "Matzka"
+        given-names: "Stephan"
+    journal: "Proceedings of the 1st International Conference on Industrial Analytics"
+    year: 2020
