@@ -1,0 +1,5 @@
+tier,machines,failures,failure_rate
+Routine,1342,3,0.0022
+Monitor,103,5,0.0485
+Inspect,9,1,0.1111
+Stop,46,42,0.913
