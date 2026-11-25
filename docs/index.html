@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Predictive Maintenance Pipeline - Results</title>
+<style>
+:root { color-scheme: light; --ink:#17212b; --muted:#5c6b7a; --accent:#1f6f8b; --bg:#f6f8fa; --card:#fff; --line:#dce3ea; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; }
+header { background:linear-gradient(135deg,#123b4a,#1f6f8b); color:#fff; padding:56px 24px; }
+header .wrap, main { max-width:1080px; margin:0 auto; }
+h1 { margin:0 0 8px; font-size:2.2rem; }
+header p { margin:0; color:#d7eef5; max-width:780px; }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin:-30px auto 30px; max-width:1080px; padding:0 24px; }
+.kpi { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:0 8px 24px rgba(20,40,60,.07); }
+.kpi b { display:block; font-size:1.55rem; color:var(--accent); }
+.kpi span { color:var(--muted); font-size:.86rem; }
+main { padding:0 24px 60px; }
+section { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:24px; margin:20px 0; }
+h2 { margin-top:0; font-size:1.35rem; }
+table { width:100%; border-collapse:collapse; font-size:.92rem; }
+th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); }
+th { color:var(--muted); font-weight:600; }
+img { width:100%; height:auto; border-radius:10px; border:1px solid var(--line); margin-top:12px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px; }
+a { color:var(--accent); }
+code { background:#eef3f7; padding:2px 6px; border-radius:5px; }
+footer { color:var(--muted); text-align:center; padding:30px 24px 50px; font-size:.86rem; }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>Predictive Maintenance Pipeline</h1>
+<p>Cost-sensitive machine-failure prediction on the AI4I 2020 benchmark. Physics-inspired features, calibrated probabilities and a maintenance policy that trades missed failures against unnecessary inspections.</p>
+</div></header>
+<div class="kpis">
+<div class="kpi"><b>0.986</b><span>ROC-AUC</span></div>
+<div class="kpi"><b>0.897</b><span>PR-AUC</span></div>
+<div class="kpi"><b>88.2%</b><span>Failure recall</span></div>
+<div class="kpi"><b>41.3%</b><span>Inspection precision</span></div>
+<div class="kpi"><b>65</b><span>Cost per 1,000</span></div>
+</div>
+<main>
+<section>
+<h2>What this project demonstrates</h2>
+<p>Sensor data is cleaned, split and enriched with thermal, power and wear interactions. Four classifiers are compared with stratified cross-validation. The winner is calibrated, a cost-sensitive maintenance threshold is selected on validation, and the test set is evaluated once. Failure-mode coverage and product-type slices show where the policy works.</p>
+<p><strong>Selected model:</strong> random forest - <strong>Threshold:</strong> 0.05 - <strong>Cost ratio:</strong> 15:1</p>
+</section>
+<section>
+<h2>Model comparison</h2>
+<table><thead><tr><th>Model</th><th>CV PR-AUC</th><th>CV ROC-AUC</th></tr></thead><tbody><tr><td>random forest</td><td>0.8694</td><td>0.9712</td></tr><tr><td>hist gradient boosting</td><td>0.8460</td><td>0.9730</td></tr><tr><td>extra trees</td><td>0.8240</td><td>0.9678</td></tr><tr><td>logistic regression</td><td>0.4700</td><td>0.9302</td></tr></tbody></table>
+<img src="figures/05_model_comparison.png" alt="Model comparison">
+</section>
+<section>
+<h2>Test-set evaluation</h2>
+<div class="grid">
+<div><img src="figures/06_roc_pr.png" alt="ROC and precision-recall curves"></div>
+<div><img src="figures/07_calibration.png" alt="Calibration curve"></div>
+</div>
+<img src="figures/08_confusion_matrix.png" alt="Confusion matrix">
+<img src="figures/09_policy_curve.png" alt="Maintenance policy curve">
+</section>
+<section>
+<h2>Risk tiers</h2>
+<table><thead><tr><th>Tier</th><th>Machines</th><th>Failures</th><th>Observed failure rate</th></tr></thead><tbody><tr><td>Routine</td><td>1,342</td><td>3</td><td>0.22%</td></tr><tr><td>Monitor</td><td>103</td><td>5</td><td>4.85%</td></tr><tr><td>Inspect</td><td>9</td><td>1</td><td>11.11%</td></tr><tr><td>Stop</td><td>46</td><td>42</td><td>91.30%</td></tr></tbody></table>
+<img src="figures/13_risk_tiers.png" alt="Risk tiers">
+</section>
+<section>
+<h2>Failure-mode coverage</h2>
+<table><thead><tr><th>Mode</th><th>Occurrences</th><th>Detected</th><th>Recall</th></tr></thead><tbody><tr><td>Tool wear</td><td>8</td><td>2</td><td>25.0%</td></tr><tr><td>Heat dissipation</td><td>18</td><td>18</td><td>100.0%</td></tr><tr><td>Power</td><td>13</td><td>13</td><td>100.0%</td></tr><tr><td>Overstrain</td><td>15</td><td>15</td><td>100.0%</td></tr><tr><td>Random</td><td>2</td><td>1</td><td>50.0%</td></tr></tbody></table>
+<img src="figures/11_failure_mode_recall.png" alt="Failure-mode recall">
+</section>
+<section>
+<h2>Feature importance</h2>
+<table><thead><tr><th>Feature</th><th>Mean drop in AP</th><th>Std</th></tr></thead><tbody><tr><td>strain_index</td><td>0.10599</td><td>0.00814</td></tr><tr><td>power_w</td><td>0.08420</td><td>0.01499</td></tr><tr><td>temp_ratio</td><td>0.06020</td><td>0.01361</td></tr><tr><td>speed_deficit</td><td>0.04497</td><td>0.00651</td></tr><tr><td>type</td><td>0.03166</td><td>0.02089</td></tr><tr><td>temp_delta_k</td><td>0.02859</td><td>0.00364</td></tr><tr><td>torque_per_1000_rpm</td><td>0.02364</td><td>0.00238</td></tr><tr><td>torque_nm</td><td>0.01916</td><td>0.00327</td></tr><tr><td>rpm</td><td>0.01900</td><td>0.00482</td></tr><tr><td>tool_wear_min</td><td>0.01466</td><td>0.00509</td></tr><tr><td>wear_per_power</td><td>0.00886</td><td>0.00194</td></tr><tr><td>thermal_load</td><td>0.00392</td><td>0.00205</td></tr></tbody></table>
+<img src="figures/10_feature_importance.png" alt="Permutation importance">
+</section>
+<section>
+<h2>Reproduce</h2>
+<p><code>python scripts/fetch_data.py</code><br><code>python -m maintenance.pipeline</code><br><code>python -m maintenance.cli check</code><br><code>streamlit run dashboard/app.py</code></p>
+<p>Full write-up: <a href="RESULTS.md">RESULTS.md</a> - <a href="METHODOLOGY.md">METHODOLOGY.md</a> - <a href="MODEL_CARD.md">MODEL_CARD.md</a></p>
+</section>
+</main>
+<footer>Dataset: AI4I 2020 (CC BY 4.0). Code: MIT. Metrics come from a fixed test split; see the manifest for checksums.</footer>
+</body>
+</html>
