@@ -1,0 +1,312 @@
+{
+  "project": "predictive-maintenance-pipeline",
+  "version": "0.1.0",
+  "dataset": "AI4I 2020 Predictive Maintenance",
+  "summary": {
+    "rows": 10000,
+    "failures": 339,
+    "healthy": 9661,
+    "failure_rate": 0.0339,
+    "types": {
+      "L": 6000,
+      "M": 2997,
+      "H": 1003
+    },
+    "failure_modes": {
+      "twf": 46,
+      "hdf": 115,
+      "pwf": 95,
+      "osf": 98,
+      "rnf": 19
+    },
+    "mean_tool_wear": 108.0,
+    "mean_torque": 40.0,
+    "mean_rpm": 1538.8,
+    "missing_values": 0
+  },
+  "splits": {
+    "train_rows": 7000,
+    "train_defaults": 237,
+    "train_rate": 0.0339,
+    "val_rows": 1500,
+    "val_defaults": 51,
+    "val_rate": 0.034,
+    "test_rows": 1500,
+    "test_defaults": 51,
+    "test_rate": 0.034
+  },
+  "model": "random_forest",
+  "comparison": [
+    {
+      "model": "random_forest",
+      "pr_auc_mean": 0.8693552659598737,
+      "pr_auc_std": 0.04359185011341071,
+      "roc_auc_mean": 0.97124954142044,
+      "roc_auc_std": 0.011915039711558202
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "pr_auc_mean": 0.8459649445483696,
+      "pr_auc_std": 0.03620012666968758,
+      "roc_auc_mean": 0.9730361610772903,
+      "roc_auc_std": 0.01211617516416964
+    },
+    {
+      "model": "extra_trees",
+      "pr_auc_mean": 0.8239835424793992,
+      "pr_auc_std": 0.03369194895332652,
+      "roc_auc_mean": 0.9677832369702992,
+      "roc_auc_std": 0.003586890317090491
+    },
+    {
+      "model": "logistic_regression",
+      "pr_auc_mean": 0.47003827224199535,
+      "pr_auc_std": 0.02459211014661964,
+      "roc_auc_mean": 0.9301978183944667,
+      "roc_auc_std": 0.0026849300456569095
+    }
+  ],
+  "policy": {
+    "threshold": 0.05,
+    "cost_per_1000": 65.33,
+    "recall": 0.9411764705882353,
+    "precision": 0.4752475247524752,
+    "flagged_rate": 0.06733333333333333,
+    "missed_failures": 3,
+    "false_alarms": 53,
+    "fn_cost": 15.0,
+    "fp_cost": 1.0
+  },
+  "test_optimal": {
+    "threshold": 0.08,
+    "cost_per_1000": 72.0,
+    "recall": 0.8823529411764706,
+    "precision": 0.7142857142857143,
+    "flagged_rate": 0.042,
+    "missed_failures": 6,
+    "false_alarms": 18,
+    "fn_cost": 15.0,
+    "fp_cost": 1.0
+  },
+  "test_metrics": {
+    "threshold": 0.05,
+    "rows": 1500,
+    "accuracy": 0.9533,
+    "precision": 0.4128,
+    "recall": 0.8824,
+    "f1": 0.5625,
+    "roc_auc": 0.9858,
+    "pr_auc": 0.8967,
+    "brier": 0.0074,
+    "log_loss": 0.0336,
+    "confusion_matrix": {
+      "tn": 1385,
+      "fp": 64,
+      "fn": 6,
+      "tp": 45
+    },
+    "flagged_rate": 0.0727,
+    "missed_failures": 6,
+    "false_alarms": 64,
+    "cost": 154.0,
+    "model": "random_forest",
+    "calibration": "isotonic"
+  },
+  "failure_modes": [
+    {
+      "mode": "twf",
+      "label": "Tool wear",
+      "occurrences": 8,
+      "detected": 2,
+      "recall": 0.25
+    },
+    {
+      "mode": "hdf",
+      "label": "Heat dissipation",
+      "occurrences": 18,
+      "detected": 18,
+      "recall": 1.0
+    },
+    {
+      "mode": "pwf",
+      "label": "Power",
+      "occurrences": 13,
+      "detected": 13,
+      "recall": 1.0
+    },
+    {
+      "mode": "osf",
+      "label": "Overstrain",
+      "occurrences": 15,
+      "detected": 15,
+      "recall": 1.0
+    },
+    {
+      "mode": "rnf",
+      "label": "Random",
+      "occurrences": 2,
+      "detected": 1,
+      "recall": 0.5
+    }
+  ],
+  "operational_slices": [
+    {
+      "slice": "type",
+      "group": "H",
+      "machines": 143,
+      "failures": 5,
+      "flag_rate": 0.0839,
+      "recall": 1.0,
+      "precision": 0.4167,
+      "mean_score": 0.0372
+    },
+    {
+      "slice": "type",
+      "group": "L",
+      "machines": 885,
+      "failures": 26,
+      "flag_rate": 0.0757,
+      "recall": 0.8846,
+      "precision": 0.3433,
+      "mean_score": 0.0308
+    },
+    {
+      "slice": "type",
+      "group": "M",
+      "machines": 472,
+      "failures": 20,
+      "flag_rate": 0.0636,
+      "recall": 0.85,
+      "precision": 0.5667,
+      "mean_score": 0.0371
+    },
+    {
+      "slice": "tool_wear_band",
+      "group": "0-50",
+      "machines": 336,
+      "failures": 4,
+      "flag_rate": 0.0208,
+      "recall": 1.0,
+      "precision": 0.5714,
+      "mean_score": 0.0133
+    },
+    {
+      "slice": "tool_wear_band",
+      "group": "121-180",
+      "machines": 419,
+      "failures": 7,
+      "flag_rate": 0.031,
+      "recall": 1.0,
+      "precision": 0.5385,
+      "mean_score": 0.0176
+    },
+    {
+      "slice": "tool_wear_band",
+      "group": "181-300",
+      "machines": 262,
+      "failures": 26,
+      "flag_rate": 0.271,
+      "recall": 0.7692,
+      "precision": 0.2817,
+      "mean_score": 0.0919
+    },
+    {
+      "slice": "tool_wear_band",
+      "group": "51-120",
+      "machines": 483,
+      "failures": 14,
+      "flag_rate": 0.0373,
+      "recall": 1.0,
+      "precision": 0.7778,
+      "mean_score": 0.0295
+    }
+  ],
+  "risk_tiers": [
+    {
+      "tier": "Routine",
+      "machines": 1342,
+      "failures": 3,
+      "failure_rate": 0.0022
+    },
+    {
+      "tier": "Monitor",
+      "machines": 103,
+      "failures": 5,
+      "failure_rate": 0.0485
+    },
+    {
+      "tier": "Inspect",
+      "machines": 9,
+      "failures": 1,
+      "failure_rate": 0.1111
+    },
+    {
+      "tier": "Stop",
+      "machines": 46,
+      "failures": 42,
+      "failure_rate": 0.913
+    }
+  ],
+  "top_features": [
+    {
+      "feature": "strain_index",
+      "importance_mean": 0.10599,
+      "importance_std": 0.00814
+    },
+    {
+      "feature": "power_w",
+      "importance_mean": 0.0842,
+      "importance_std": 0.01499
+    },
+    {
+      "feature": "temp_ratio",
+      "importance_mean": 0.0602,
+      "importance_std": 0.01361
+    },
+    {
+      "feature": "speed_deficit",
+      "importance_mean": 0.04497,
+      "importance_std": 0.00651
+    },
+    {
+      "feature": "type",
+      "importance_mean": 0.03166,
+      "importance_std": 0.02089
+    },
+    {
+      "feature": "temp_delta_k",
+      "importance_mean": 0.02859,
+      "importance_std": 0.00364
+    },
+    {
+      "feature": "torque_per_1000_rpm",
+      "importance_mean": 0.02364,
+      "importance_std": 0.00238
+    },
+    {
+      "feature": "torque_nm",
+      "importance_mean": 0.01916,
+      "importance_std": 0.00327
+    },
+    {
+      "feature": "rpm",
+      "importance_mean": 0.019,
+      "importance_std": 0.00482
+    },
+    {
+      "feature": "tool_wear_min",
+      "importance_mean": 0.01466,
+      "importance_std": 0.00509
+    },
+    {
+      "feature": "wear_per_power",
+      "importance_mean": 0.00886,
+      "importance_std": 0.00194
+    },
+    {
+      "feature": "thermal_load",
+      "importance_mean": 0.00392,
+      "importance_std": 0.00205
+    }
+  ]
+}
