@@ -1,0 +1,6 @@
+mode,label,occurrences,detected,recall
+twf,Tool wear,8,2,0.25
+hdf,Heat dissipation,18,18,1.0
+pwf,Power,13,13,1.0
+osf,Overstrain,15,15,1.0
+rnf,Random,2,1,0.5
