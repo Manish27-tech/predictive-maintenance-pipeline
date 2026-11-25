@@ -1,0 +1,165 @@
+{
+  "generated_at": "2026-11-25T14:26:15+00:00",
+  "file_count": 30,
+  "total_bytes": 18866798,
+  "metadata": {
+    "project": "predictive-maintenance-pipeline",
+    "version": "0.1.0",
+    "model": "random_forest",
+    "test_roc_auc": 0.9858,
+    "test_pr_auc": 0.8967,
+    "rows": 10000
+  },
+  "files": [
+    {
+      "path": "artifacts/calibration.csv",
+      "bytes": 197,
+      "sha256": "6610b8aeb9311bab8e07009696c8248c4d550c446611002fa83d20610f593849"
+    },
+    {
+      "path": "artifacts/dashboard/feed.json",
+      "bytes": 4983,
+      "sha256": "6b1a5ad9e160a1a4987d1c3b47052df3d0977b66cfd0d2363e82cf9f1efd5b25"
+    },
+    {
+      "path": "artifacts/dashboard/input_template.json",
+      "bytes": 289,
+      "sha256": "77c0eb9748ff04bc5c48482c9427e75da539823268017d11d60d1f2f56ae4a26"
+    },
+    {
+      "path": "artifacts/failure_modes.csv",
+      "bytes": 163,
+      "sha256": "8b659c09463e7080cb644aedc39de8f0f36386dad012385a2efe816d045d85a8"
+    },
+    {
+      "path": "artifacts/feature_importance.csv",
+      "bytes": 441,
+      "sha256": "61b9e74f13abc9ba10de349bf0c78a04865dba761e7fc7280aa046917e6744d0"
+    },
+    {
+      "path": "artifacts/figures/01_failure_balance.png",
+      "bytes": 21832,
+      "sha256": "81b57986bd37800ad3672005b5fbee775a890797815bd47f12076fdf02d7013c"
+    },
+    {
+      "path": "artifacts/figures/02_failure_modes.png",
+      "bytes": 31528,
+      "sha256": "7b10f5d974633579e8f353e561075bdd091f98be2497e93dad7a28856850475d"
+    },
+    {
+      "path": "artifacts/figures/03_sensor_distributions.png",
+      "bytes": 54388,
+      "sha256": "95d82cb9088c96a04ae4d7c584b7221df6afe50ad66dd12c22a9aa3612f99487"
+    },
+    {
+      "path": "artifacts/figures/04_correlation_heatmap.png",
+      "bytes": 61323,
+      "sha256": "3f13d6f07015b1614616eb4de9d2f1851f9c0ed1da2caf1b4db7c7da05ccb3b3"
+    },
+    {
+      "path": "artifacts/figures/05_model_comparison.png",
+      "bytes": 38474,
+      "sha256": "6df5bf45dce9a7f0d0f6faf8ff5ba659412d5f3197e26a7961b85f69053704e8"
+    },
+    {
+      "path": "artifacts/figures/06_roc_pr.png",
+      "bytes": 53046,
+      "sha256": "95d5ef38b71ede8f76fbf6c49ca4f57300a9103498f20be47e0b6734a45a09c1"
+    },
+    {
+      "path": "artifacts/figures/07_calibration.png",
+      "bytes": 37197,
+      "sha256": "79c51c75d259f252e5a4158b5f17156888fca095dc99875cb0dbe7b156b1b177"
+    },
+    {
+      "path": "artifacts/figures/08_confusion_matrix.png",
+      "bytes": 27061,
+      "sha256": "239eee92f9fa39faece5a97b2b062d30300a3d3c91f413b4164dc236b109d52c"
+    },
+    {
+      "path": "artifacts/figures/09_policy_curve.png",
+      "bytes": 45334,
+      "sha256": "e1bf9b45822d40f7b95e2678faab88df7cf4777c7cb91503d7a2aeff7f597b88"
+    },
+    {
+      "path": "artifacts/figures/10_feature_importance.png",
+      "bytes": 51474,
+      "sha256": "5f29e04f69f53ecb2f77546a5c8f5e1d7ddb8ea880636e1715c1acbcb2ee5d74"
+    },
+    {
+      "path": "artifacts/figures/11_failure_mode_recall.png",
+      "bytes": 35801,
+      "sha256": "9933af38f7b10ba9fcb588076f531cc3ccdb39bddeefd61281381b2adc87187e"
+    },
+    {
+      "path": "artifacts/figures/12_operational_slices.png",
+      "bytes": 22971,
+      "sha256": "fd9eb3caabd07f7622c05cb58db44975ec4ac461d324bd1409072c8189e689a7"
+    },
+    {
+      "path": "artifacts/figures/13_risk_tiers.png",
+      "bytes": 31298,
+      "sha256": "fc3acabc6c0c231616251c46b93e57d687ffcd855041946b7316b359258631da"
+    },
+    {
+      "path": "artifacts/maintenance_model.joblib",
+      "bytes": 18234489,
+      "sha256": "2212901fa09911dbb6b303a100fce2c739143e751b5a640c0a13d6dacb187e28"
+    },
+    {
+      "path": "artifacts/metrics.json",
+      "bytes": 6996,
+      "sha256": "b86da7c32c2e55e684da4543e036a8034e53191fbb93fb1847e23f45a4819c1b"
+    },
+    {
+      "path": "artifacts/model_comparison.csv",
+      "bytes": 443,
+      "sha256": "d6b7c79c27bbbcc6d545aea349a93fd9dda251ceade3acef66ce26242074c3cd"
+    },
+    {
+      "path": "artifacts/operational_slices.csv",
+      "bytes": 411,
+      "sha256": "03064d75ed6c53c0cc5e7f8264b7933838f0ab66132af0bfd9464cc766b4f465"
+    },
+    {
+      "path": "artifacts/policy_curve.csv",
+      "bytes": 7488,
+      "sha256": "ccf114859e762de803c43fbce66ab9b1ee22b0312d4cd18ea3869433bccfdda9"
+    },
+    {
+      "path": "artifacts/risk_tiers.csv",
+      "bytes": 120,
+      "sha256": "619e5f7197595b5a42a186bcc859a49cf8cac4bfa97dae48fe264f6c7169c7f0"
+    },
+    {
+      "path": "artifacts/test_scores.csv",
+      "bytes": 80206,
+      "sha256": "2cbaaac864c68abc21961430ce3d6a7c50cce8b045bc1bb7ce8ea570ce45dfa6"
+    },
+    {
+      "path": "docs/index.html",
+      "bytes": 6575,
+      "sha256": "cdde8da08231e0f1fce213a6ac20d8c8cb93ea373721de98ca10d69eb2a72171"
+    },
+    {
+      "path": "docs/MODEL_CARD.md",
+      "bytes": 1997,
+      "sha256": "e0c8fcd16ec6a4f8986bf3dde2d9d9863cb1effc0ba9d2e155ec7d75a62d3427"
+    },
+    {
+      "path": "docs/RESULTS.md",
+      "bytes": 1939,
+      "sha256": "0a31b3a36b58f83a30095a5a07b4782db768fc473e120c17e933fd88938d5e70"
+    },
+    {
+      "path": "reports/MODEL_CARD.md",
+      "bytes": 1997,
+      "sha256": "e0c8fcd16ec6a4f8986bf3dde2d9d9863cb1effc0ba9d2e155ec7d75a62d3427"
+    },
+    {
+      "path": "reports/REPORT.md",
+      "bytes": 6337,
+      "sha256": "7ace78c857bf3c4d61479040968b0713e999d0882cc3557eb00c645aaca4af75"
+    }
+  ]
+}
