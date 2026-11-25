@@ -1,0 +1,16 @@
+{
+  "udi": 5000.5,
+  "product_id": "H29424",
+  "type": "M",
+  "air_temp_k": 300.1,
+  "process_temp_k": 310.1,
+  "rpm": 1503.0,
+  "torque_nm": 40.1,
+  "tool_wear_min": 108.0,
+  "twf": 0.0,
+  "hdf": 0.0,
+  "pwf": 0.0,
+  "osf": 0.0,
+  "rnf": 0.0,
+  "tool_wear_band": "51-120"
+}
