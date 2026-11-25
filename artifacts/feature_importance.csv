@@ -1,0 +1,15 @@
+feature,importance_mean,importance_std
+strain_index,0.10599,0.00814
+power_w,0.0842,0.01499
+temp_ratio,0.0602,0.01361
+speed_deficit,0.04497,0.00651
+type,0.03166,0.02089
+temp_delta_k,0.02859,0.00364
+torque_per_1000_rpm,0.02364,0.00238
+torque_nm,0.01916,0.00327
+rpm,0.019,0.00482
+tool_wear_min,0.01466,0.00509
+wear_per_power,0.00886,0.00194
+thermal_load,0.00392,0.00205
+air_temp_k,0.00118,0.00434
+process_temp_k,-0.00423,0.00188
